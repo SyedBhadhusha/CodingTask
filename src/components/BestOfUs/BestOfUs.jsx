@@ -36,7 +36,6 @@ const BestOfUs = () => {
       />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {images?.map((i, index) => {
-          console.log(i);
           return (
             <div className="relative h-48 group" key={i.id}>
               <img
