@@ -35,33 +35,31 @@ const BestOfUs = () => {
         desc={"Lorem ipsum dolor sit amet consectetur adipisicing elit."}
       />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {images?.map((i, index) => {
-          return (
-            <div className="relative h-48 group" key={i.id}>
-              <img
-                className="object-cover w-full h-full"
-                src={i.src || fallbackImage}
-                alt=""
-              />
-              <div className="absolute inset-0 z-10 items-center justify-center hidden w-full h-full transition-all duration-300 bg-black/10 group-hover:flex">
-                <button
-                  onClick={() => {
-                    if (i.src) {
-                      setSelectedImg(index);
-                      handleFileClear();
-                    } else {
-                      fileRef.current?.click();
-                      setSelectedImg(index);
-                    }
-                  }}
-                  className="flex items-center justify-center w-4 h-4 text-center bg-white rounded-full cursor-pointer ring-1 ring-offset-8 ring-transparent ring-white"
-                >
-                  {i.src ? "-" : "+"}
-                </button>
-              </div>
+        {images?.map((i, index) => (
+          <div className="relative h-48 group" key={i.id}>
+            <img
+              className="object-cover w-full h-full"
+              src={i.src || fallbackImage}
+              alt=""
+            />
+            <div className="absolute inset-0 z-10 items-center justify-center hidden w-full h-full transition-all duration-300 bg-black/10 group-hover:flex">
+              <button
+                onClick={() => {
+                  if (i.src) {
+                    setSelectedImg(index);
+                    handleFileClear();
+                  } else {
+                    fileRef.current?.click();
+                    setSelectedImg(index);
+                  }
+                }}
+                className="flex items-center justify-center w-4 h-4 text-center bg-white rounded-full cursor-pointer ring-1 ring-offset-8 ring-transparent ring-white"
+              >
+                {i.src ? "-" : "+"}
+              </button>
             </div>
-          );
-        })}
+          </div>
+        ))}
         <input
           type="file"
           ref={fileRef}
